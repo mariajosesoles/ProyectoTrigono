@@ -7,6 +7,7 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,13 +40,23 @@ export default function Login() {
           onChange={(e) => setUsername(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-[#E882C2]"
         />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-[#E882C2]"
-        />
+
+        <div className="relative mb-6">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded pr-16 focus:outline-none focus:ring-2 focus:ring-[#E882C2]"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(prev => !prev)}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-[#B61D7D] hover:underline"
+          >
+            {showPassword ? 'Ocultar' : 'Ver'}
+          </button>
+        </div>
 
         <button
           type="submit"
