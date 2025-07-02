@@ -36,6 +36,7 @@ Aplicación web fullstack que permite a un usuario registrarse, iniciar sesión 
 
 La conexión está configurada en `tri_backend/api/settings.py`:
 
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -46,39 +47,58 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
----
+```
 
 Comandos para crear y configurar la base de datos:
-  CREATE DATABASE trigono_db;
-  CREATE USER trigono_user WITH PASSWORD 'animales';
-  ALTER ROLE trigono_user SET client_encoding TO 'utf8';
-  ALTER ROLE trigono_user SET default_transaction_isolation TO 'read committed';
-  ALTER ROLE trigono_user SET timezone TO 'UTC';
-  GRANT ALL PRIVILEGES ON DATABASE trigono_db TO trigono_user;
+
+```sql
+CREATE DATABASE trigono_db;
+CREATE USER trigono_user WITH PASSWORD 'animales';
+ALTER ROLE trigono_user SET client_encoding TO 'utf8';
+ALTER ROLE trigono_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE trigono_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE trigono_db TO trigono_user;
+```
 
 ---
 
-Backend:
-  git clone https://github.com/TU_USUARIO/ProyectoTrigono.git
-  cd ProyectoTrigono/tri_backend
-  
-  python -m venv .venv
-  source .venv/Scripts/activate  # En Windows
-  # source .venv/bin/activate    # En Linux/macOS
-  
-  pip install -r requirements.txt
-  
-  python manage.py migrate
-  python manage.py createsuperuser
-  
-  python manage.py runserver
+## Backend
+
+```bash
+git clone https://github.com/TU_USUARIO/ProyectoTrigono.git
+cd ProyectoTrigono/tri_backend
+
+python -m venv .venv
+source .venv/Scripts/activate  # En Windows
+# source .venv/bin/activate    # En Linux/macOS
+
+pip install -r requirements.txt
+
+python manage.py migrate
+python manage.py createsuperuser
+
+python manage.py runserver
+```
 
 ---
 
-Frontend:
-  cd ProyectoTrigono/frontend
-  npm install
-  npm run dev
+## Frontend
+
+```bash
+cd ProyectoTrigono/frontend
+npm install
+npm run dev
+```
 
 ---
+
+## Cómo subir a GitHub
+
+```bash
+git init
+git add .
+git commit -m "Primer commit - Proyecto fullstack Trigono"
+git remote add origin https://github.com/TU_USUARIO/ProyectoTrigono.git
+git branch -M main
+git push -u origin main
+```
